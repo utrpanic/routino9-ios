@@ -8,21 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		389B8D932B7EB55A00A3219B /* Routine9App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8D922B7EB55A00A3219B /* Routine9App.swift */; };
-		389B8D952B7EB55A00A3219B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8D942B7EB55A00A3219B /* ContentView.swift */; };
-		389B8D972B7EB55A00A3219B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389B8D962B7EB55A00A3219B /* Item.swift */; };
 		389B8D992B7EB55B00A3219B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389B8D982B7EB55B00A3219B /* Assets.xcassets */; };
 		389B8D9C2B7EB55B00A3219B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 389B8D9B2B7EB55B00A3219B /* Preview Assets.xcassets */; };
+		389B8DAB2B7EB8C600A3219B /* Libraries in Frameworks */ = {isa = PBXBuildFile; productRef = 389B8DAA2B7EB8C600A3219B /* Libraries */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		389B8D8F2B7EB55A00A3219B /* Routine9.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Routine9.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		389B8D922B7EB55A00A3219B /* Routine9App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routine9App.swift; sourceTree = "<group>"; };
-		389B8D942B7EB55A00A3219B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		389B8D962B7EB55A00A3219B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		389B8D982B7EB55B00A3219B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		389B8D9B2B7EB55B00A3219B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		389B8D9D2B7EB55B00A3219B /* Routine9.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Routine9.entitlements; sourceTree = "<group>"; };
 		389B8D9E2B7EB55B00A3219B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		389B8DA42B7EB7BD00A3219B /* Libraries */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Libraries; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389B8DAB2B7EB8C600A3219B /* Libraries in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,8 +38,10 @@
 		389B8D862B7EB55A00A3219B = {
 			isa = PBXGroup;
 			children = (
+				389B8DA42B7EB7BD00A3219B /* Libraries */,
 				389B8D912B7EB55A00A3219B /* Routine9 */,
 				389B8D902B7EB55A00A3219B /* Products */,
+				389B8DA52B7EB86900A3219B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				389B8D922B7EB55A00A3219B /* Routine9App.swift */,
-				389B8D942B7EB55A00A3219B /* ContentView.swift */,
-				389B8D962B7EB55A00A3219B /* Item.swift */,
 				389B8D982B7EB55B00A3219B /* Assets.xcassets */,
 				389B8D9D2B7EB55B00A3219B /* Routine9.entitlements */,
 				389B8D9E2B7EB55B00A3219B /* Info.plist */,
@@ -72,6 +71,13 @@
 				389B8D9B2B7EB55B00A3219B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		389B8DA52B7EB86900A3219B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +96,9 @@
 			dependencies = (
 			);
 			name = Routine9;
+			packageProductDependencies = (
+				389B8DAA2B7EB8C600A3219B /* Libraries */,
+			);
 			productName = Routine9;
 			productReference = 389B8D8F2B7EB55A00A3219B /* Routine9.app */;
 			productType = "com.apple.product-type.application";
@@ -144,8 +153,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				389B8D952B7EB55A00A3219B /* ContentView.swift in Sources */,
-				389B8D972B7EB55A00A3219B /* Item.swift in Sources */,
 				389B8D932B7EB55A00A3219B /* Routine9App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +361,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		389B8DAA2B7EB8C600A3219B /* Libraries */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Libraries;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 389B8D872B7EB55A00A3219B /* Project object */;
 }
