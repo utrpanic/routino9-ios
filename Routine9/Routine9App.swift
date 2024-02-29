@@ -5,14 +5,11 @@ import SwiftUI
 
 @main
 struct Routine9App: App {
-  var sharedModelContainer: ModelContainer = {
-    let schema = Schema([
-      Item.self,
-    ])
-    let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+  var modelContainer: ModelContainer = {
+    let schema = Schema([Day.self, Item.self, Todo.self])
+    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
     do {
-      return try ModelContainer(for: schema, configurations: [modelConfiguration])
+      return try ModelContainer(for: schema, configurations: [configuration])
     } catch {
       fatalError("Could not create ModelContainer: \(error)")
     }
@@ -20,8 +17,8 @@ struct Routine9App: App {
 
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      MainView()
     }
-    .modelContainer(self.sharedModelContainer)
+    .modelContainer(self.modelContainer)
   }
 }

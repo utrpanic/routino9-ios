@@ -13,7 +13,10 @@ let package = Package(
     .target(
       name: "Features",
       dependencies: ["Models"],
-      path: "Features"
+      path: "Features",
+      resources: [
+        .process("Resources")
+      ]
     ),
     .target(
       name: "Models",
