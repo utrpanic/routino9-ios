@@ -9,7 +9,9 @@ public struct ContentView: View {
   public init() {}
 
   public var body: some View {
-    NavigationSplitView {
+    NavigationSplitView(
+      preferredCompactColumn: .constant(.detail)
+    ) {
       List {
         ForEach(self.items) { item in
           NavigationLink {

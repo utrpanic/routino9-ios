@@ -3,35 +3,35 @@ import SwiftData
 import SwiftUI
 
 public struct MainView: View {
-  @State var presentSideMenu: Bool
-  @State var selectedMenuIndex: Int
-  
+  @State private var selectedMenuIndex: Int
+
   public init(
-    presentSideMenu: Bool = true,
     selectedMenuIndex: Int = 0
   ) {
-    self.presentSideMenu = presentSideMenu
-    self.selectedMenuIndex = selectedMenuIndex
+    self._selectedMenuIndex = State(initialValue: selectedMenuIndex)
   }
 
   public var body: some View {
-    ZStack {
-      TabView(selection: self.$selectedMenuIndex) {
-        HomeView(presentSideMenu: self.$presentSideMenu)
+    NavigationSplitView(
+      preferredCompactColumn: .constant(.detail)
+    ) {
+      List {
+        ForEach(Menu.allCases, id: \.rawValue) { menu in
+          NavigationLink {
+            switch menu {
+            case .home: HomeView()
+            }
+          } label: {
+            Text(menu.title)
+          }
+        }
       }
-      SideMenu(
-        isShowing: self.$presentSideMenu,
-        content: AnyView(
-          MenuView(
-            selectedMenu: self.$selectedMenuIndex,
-            presentSideMenu: self.$presentSideMenu
-          )
-        )
-      )
+    } detail: {
+      Text("Select an item")
     }
   }
 }
 
 #Preview {
-  MainView(presentSideMenu: false, selectedMenuIndex: 0)
+  MainView(selectedMenuIndex: 0)
 }
