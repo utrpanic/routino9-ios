@@ -3,35 +3,45 @@ import SwiftData
 import SwiftUI
 
 public struct MainView: View {
-  @State private var selectedMenuIndex: Int
+  @State private var selectedMenu: MainMenu?
 
-  public init(
-    selectedMenuIndex: Int = 0
-  ) {
-    self._selectedMenuIndex = State(initialValue: selectedMenuIndex)
+  public init(selectedMenu: MainMenu = .home) {
+    self._selectedMenu = State(initialValue: selectedMenu)
   }
 
   public var body: some View {
     NavigationSplitView(
       preferredCompactColumn: .constant(.detail)
     ) {
-      List {
-        ForEach(Menu.allCases, id: \.rawValue) { menu in
+      List(selection: self.$selectedMenu) {
+        ForEach(MainMenu.allCases, id: \.rawValue) { menu in
           NavigationLink {
-            switch menu {
-            case .home: HomeView()
-            }
+            self.mainContentView(menu)
           } label: {
             Text(menu.title)
-          }
+          }.tag(menu)
         }
       }
     } detail: {
-      Text("Select an item")
+      Group {
+        if let menu = self.selectedMenu {
+          self.mainContentView(menu)
+        } else {
+          Text("No Menu Selected")
+        }
+      }
+    }
+  }
+
+  @ViewBuilder
+  func mainContentView(_ menu: MainMenu) -> some View {
+    switch menu {
+    case .home:
+      HomeController(date: Day())
     }
   }
 }
 
 #Preview {
-  MainView(selectedMenuIndex: 0)
+  MainView()
 }

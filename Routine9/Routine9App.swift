@@ -6,8 +6,8 @@ import SwiftUI
 @main
 struct Routine9App: App {
   var modelContainer: ModelContainer = {
-    let schema = Schema([Day.self, Item.self, Todo.self])
-    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+    let schema = Schema([Item.self, Repeat.self, Todo.self])
+    let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
     do {
       return try ModelContainer(for: schema, configurations: [configuration])
     } catch {
@@ -16,9 +16,13 @@ struct Routine9App: App {
   }()
 
   var body: some Scene {
-    WindowGroup {
+    let container = self.modelContainer
+    Todo.samples.forEach { todo in
+      container.mainContext.insert(todo)
+    }
+    return WindowGroup {
       MainView()
     }
-    .modelContainer(self.modelContainer)
+    .modelContainer(container)
   }
 }
